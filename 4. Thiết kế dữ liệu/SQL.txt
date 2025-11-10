@@ -1,0 +1,787 @@
+/****** Object:  Table [dbo].[Bac_si]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Bac_si](
+	[Ma_bac_si] [varchar](10) NOT NULL,
+	[Chuyen_khoa] [nvarchar](30) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ma_bac_si] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Benh_nhan]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Benh_nhan](
+	[CCCD] [nvarchar](12) NOT NULL,
+	[Ho] [nvarchar](50) NOT NULL,
+	[Ten] [nvarchar](50) NOT NULL,
+	[Gioi_tinh] [nvarchar](3) NULL,
+	[Ngay_sinh] [date] NULL,
+	[Tuoi] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CCCD] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ca_lam]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ca_lam](
+	[Ca] [int] NOT NULL,
+	[Gio_bat_dau] [time](7) NULL,
+	[Gio_ket_thuc] [time](7) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ca] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Chi_tieu_dung_cu]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Chi_tieu_dung_cu](
+	[ID] [varchar](15) NOT NULL,
+	[Ten_dung_cu] [nvarchar](30) NOT NULL,
+	[So_luong] [int] NULL,
+	[Thanh_tien] [float] NULL,
+	[STT] [varchar](15) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC,
+	[STT] ASC,
+	[Ten_dung_cu] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Chu]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Chu](
+	[Ma_chu] [varchar](10) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ma_chu] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Chuyen_khoa]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Chuyen_khoa](
+	[Ten] [nvarchar](30) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ten] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Danh_muc_ki_thuat]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Danh_muc_ki_thuat](
+	[Ten_danh_muc] [nvarchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ten_danh_muc] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Dich_vu]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Dich_vu](
+	[Ten_dich_vu] [nvarchar](50) NOT NULL,
+	[Don_vi_tinh] [nvarchar](15) NULL,
+	[Don_gia] [float] NOT NULL,
+	[Ghi_chu] [nvarchar](150) NULL,
+	[Ten_danh_muc] [nvarchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ten_dich_vu] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Dung_cu]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Dung_cu](
+	[Ten_dung_cu] [nvarchar](30) NOT NULL,
+	[Mau_sac] [nvarchar](15) NULL,
+	[Kich_co] [float] NULL,
+	[DVT] [nvarchar](15) NULL,
+	[Tri_gia] [float] NOT NULL,
+	[So_luong] [int] NOT NULL,
+	[Ghi_chu] [nvarchar](150) NULL,
+	[Loai] [nvarchar](30) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ten_dung_cu] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Hoa_don_Dich_vu]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Hoa_don_Dich_vu](
+	[ID] [varchar](15) NOT NULL,
+	[STT] [varchar](15) NOT NULL,
+	[Ten_dich_vu] [nvarchar](50) NOT NULL,
+	[So_luong] [int] NULL,
+	[Thanh_tien] [float] NULL,
+	[Ghi_chu] [nvarchar](150) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC,
+	[STT] ASC,
+	[Ten_dich_vu] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Hoa_don_Thuoc]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Hoa_don_Thuoc](
+	[ID] [varchar](15) NOT NULL,
+	[STT] [varchar](15) NOT NULL,
+	[Ten_thuoc] [nvarchar](30) NOT NULL,
+	[So_luong] [int] NULL,
+	[Thanh_tien] [float] NULL,
+	[Ghi_chu] [nvarchar](150) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC,
+	[STT] ASC,
+	[Ten_thuoc] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Lam_viec]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Lam_viec](
+	[Ngay] [date] NOT NULL,
+	[Ca] [int] NOT NULL,
+	[Ma_bac_si] [varchar](10) NOT NULL,
+	[Cham_cong] [nvarchar](15) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ngay] ASC,
+	[Ma_bac_si] ASC,
+	[Ca] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Le_tan]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Le_tan](
+	[Ma_le_tan] [varchar](10) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ma_le_tan] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Loai_dung_cu]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Loai_dung_cu](
+	[Ten_loai] [nvarchar](30) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ten_loai] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Loai_thuoc]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Loai_thuoc](
+	[Ten_loai] [nvarchar](30) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ten_loai] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Luong_co_dinh]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Luong_co_dinh](
+	[Ma] [varchar](10) NOT NULL,
+	[So_tien] [float] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ma] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Luong_them]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Luong_them](
+	[Ma] [int] NOT NULL,
+	[Tien] [float] NULL,
+	[Gio] [datetime] NULL,
+	[IDHD] [varchar](30) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ma] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Nguoi_dung]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Nguoi_dung](
+	[Ma_nhan_vien] [varchar](10) NOT NULL,
+	[Ho] [nvarchar](50) NOT NULL,
+	[Ten] [nvarchar](50) NOT NULL,
+	[Gioi_tinh] [nvarchar](3) NULL,
+	[Ngay_sinh] [date] NULL,
+	[Email] [varchar](50) NOT NULL,
+	[Que_quan] [nvarchar](30) NULL,
+	[CCCD] [nvarchar](12) NULL,
+	[Maluong] [varchar](10) NULL,
+	[Hoatdong] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ma_nhan_vien] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Nguoi_kham]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Nguoi_kham](
+	[STT] [varchar](15) NOT NULL,
+	[Ngay] [date] NULL,
+	[Ca] [int] NULL,
+	[Ma_benh_nhan] [nvarchar](12) NULL,
+	[Ma_le_tan] [varchar](10) NULL,
+	[Ma_bac_si] [varchar](10) NULL,
+	[Trang_thai] [nvarchar](15) NULL,
+	[Ghi_chu] [nvarchar](150) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[STT] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Phuong_thuc_thanh_toan]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Phuong_thuc_thanh_toan](
+	[Ten] [nvarchar](30) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ten] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tai_khoan]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tai_khoan](
+	[Taikhoan] [varchar](30) NOT NULL,
+	[Matkhau] [varchar](30) NOT NULL,
+	[MaNV] [varchar](10) NULL,
+	[role] [nvarchar](20) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Taikhoan] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Thanh_toan]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Thanh_toan](
+	[ID] [varchar](30) NOT NULL,
+	[STT] [varchar](15) NULL,
+	[Gio] [datetime] NULL,
+	[Tongtien] [float] NULL,
+	[Hinhthuc] [nvarchar](30) NULL,
+	[Tinhtrang] [nvarchar](30) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Thuoc]    Script Date: 11/23/2024 10:27:15 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Thuoc](
+	[Ten_thuoc] [nvarchar](30) NOT NULL,
+	[DVT] [nvarchar](15) NULL,
+	[So_luong] [int] NOT NULL,
+	[Gia_ban] [float] NOT NULL,
+	[Ham_luong] [nvarchar](10) NOT NULL,
+	[Ghi_chu] [nvarchar](150) NULL,
+	[Ten_loai] [nvarchar](30) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Ten_thuoc] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Bac_si] ([Ma_bac_si], [Chuyen_khoa]) VALUES (N'BSRTE01', N'Chữa răng và nội nha')
+GO
+INSERT [dbo].[Benh_nhan] ([CCCD], [Ho], [Ten], [Gioi_tinh], [Ngay_sinh], [Tuoi]) VALUES (N'987654321001', N'Phạm', N'Huy', N'Nam', CAST(N'1979-10-15' AS Date), 45)
+INSERT [dbo].[Benh_nhan] ([CCCD], [Ho], [Ten], [Gioi_tinh], [Ngay_sinh], [Tuoi]) VALUES (N'987654321002', N'Trần', N'Thảo', N'Nữ', CAST(N'1996-08-07' AS Date), 28)
+GO
+INSERT [dbo].[Ca_lam] ([Ca], [Gio_bat_dau], [Gio_ket_thuc]) VALUES (1, CAST(N'08:00:00' AS Time), CAST(N'12:00:00' AS Time))
+INSERT [dbo].[Ca_lam] ([Ca], [Gio_bat_dau], [Gio_ket_thuc]) VALUES (2, CAST(N'13:00:00' AS Time), CAST(N'17:00:00' AS Time))
+INSERT [dbo].[Ca_lam] ([Ca], [Gio_bat_dau], [Gio_ket_thuc]) VALUES (3, CAST(N'18:00:00' AS Time), CAST(N'22:00:00' AS Time))
+GO
+INSERT [dbo].[Chi_tieu_dung_cu] ([ID], [Ten_dung_cu], [So_luong], [Thanh_tien], [STT]) VALUES (N'1', N'Composite lỏng', 1, 1500, N'NK001')
+INSERT [dbo].[Chi_tieu_dung_cu] ([ID], [Ten_dung_cu], [So_luong], [Thanh_tien], [STT]) VALUES (N'2', N'Composite lỏng', 1, 332, N'NK001')
+INSERT [dbo].[Chi_tieu_dung_cu] ([ID], [Ten_dung_cu], [So_luong], [Thanh_tien], [STT]) VALUES (N'3', N'Cone chính', 2, 1000000, N'NK001')
+GO
+INSERT [dbo].[Chuyen_khoa] ([Ten]) VALUES (N'Chữa răng và nội nha')
+INSERT [dbo].[Chuyen_khoa] ([Ten]) VALUES (N'Nha chu')
+INSERT [dbo].[Chuyen_khoa] ([Ten]) VALUES (N'Nhổ răng và tiểu phẫu')
+INSERT [dbo].[Chuyen_khoa] ([Ten]) VALUES (N'Phục hình')
+INSERT [dbo].[Chuyen_khoa] ([Ten]) VALUES (N'Răng trẻ em')
+INSERT [dbo].[Chuyen_khoa] ([Ten]) VALUES (N'Tổng quát')
+GO
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Chỉnh hình răng mặt')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Chữa răng - Nội nha')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Chữa tủy')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Điều trị loạn năng hệ thống nhai')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Điều trị răng sữa')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Điều trị tiền phục hình')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Khám - Hồ sơ')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Khí cụ cố định')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Khí cụ tháo lắp')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Nha chu')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Nha công cộng')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Nhổ răng')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Phục hình cố định')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Phục hình tháo lắp')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Sửa chữa hàm')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'Tiểu phẫu thuật')
+INSERT [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc]) VALUES (N'X-quang răng')
+GO
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'1 hàm', N'Hàm', 1500000, NULL, N'Khí cụ tháo lắp')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'1 hàm (Khí cụ cố định)', N'Hàm', 10000000, NULL, N'Khí cụ cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'1 hàm toàn hàm', N'Hàm', 1500000, NULL, N'Phục hình tháo lắp')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'1 máng nhai', N'Máng', 500000, NULL, N'Điều trị loạn năng hệ thống nhai')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'1 răng', N'Răng', 100000, NULL, N'Phục hình tháo lắp')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'2 hàm', N'Hàm', 3000000, NULL, N'Khí cụ tháo lắp')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'2 hàm (Khí cụ cố định)', N'Hàm', 20000000, NULL, N'Khí cụ cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'2 hàm điều trị trên 2 năm', N'Hàm', 26000000, NULL, N'Khí cụ cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'2 hàm sử dụng mắc cài sứ', N'Hàm', 28000000, NULL, N'Khí cụ cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'2 hàm sử dụng mắc cài thế hệ mới', N'Hàm', 28000000, NULL, N'Khí cụ cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'2 hàm toàn hàm', N'Hàm', 3000000, NULL, N'Phục hình tháo lắp')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Bộ giữ khoảng cố định 2 bên', N'Bộ', 800000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Bộ giữ khoảng tháo lắp', N'Hàm', 250000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Cạo vôi răng', N'2 hàm', 50000, NULL, N'Nha chu')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Cắt thắng', N'Lần', 100000, NULL, N'Nha chu')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Cầu răng tạm', N'Răng', 15000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Chữa đau', N'Lần', 50000, NULL, N'Sửa chữa hàm')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Chữa tủy lại(đóng thêm)', N'Ống tủy', 150000, NULL, N'Chữa tủy')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Cùi giả đúc', N'Cái', 100000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Đặt gel Fluor phòng ngừa', N'Hàm', 50000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Đệm hàm nhựa nấu', N'Hàm', 250000, NULL, N'Sửa chữa hàm')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Đệm hàm nhựa tự cứng(Hàm cũ)', N'Hàm', 100000, NULL, N'Điều trị tiền phục hình')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Điều chỉnh khớp cắn(Hàm cũ)', N'Hàm', 100000, NULL, N'Điều trị tiền phục hình')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Điều chỉnh, gắn lại, tháo PHCĐ', N'Răng', 100000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Điều trị viêm nha chu không phẫu thuật', N'Vùng hàm', 100000, N'Nạo túi nha chu', N'Nha chu')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Giữ khoảng cố định 1 bên', N'Cái', 400000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Hàm dẻo', N'Cái', 700000, NULL, N'Sửa chữa hàm')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Hàm khung bộ(Răng tính riêng)', N'Cái', 750000, NULL, N'Sửa chữa hàm')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Hàm khung Ti(chưa bao gồm răng)', NULL, 1500000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Hàm tạm', N'Răng', 50000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Khí cụ đẩy môi(lip bumper)', N'Cái', 1000000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Khí cụ duy trì kết quả 1 hàm', N'Hàm', 300000, NULL, N'Khí cụ tháo lắp')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Khí cụ Quad Helix', N'Cái', 1000000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Khí cụ tháo lắp điều trị cắn chéo 1 răng', N'Cái', 1000000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Làm lại khí cụ 1 hàm', N'Hàm', 300000, NULL, N'Khí cụ tháo lắp')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Làm lại khí cụ 2 hàm', N'Hàm', 600000, NULL, N'Khí cụ tháo lắp')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Lấy tủy chân răng sữa', N'Răng', 200000, N'2 phim', N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Màng chỉnh khớp cắn đơn giản', N'Lần', 150000, NULL, N'Điều trị loạn năng hệ thống nhai')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Màng chỉnh khớp cắn phức tạp', N'Lần', 300000, NULL, N'Điều trị loạn năng hệ thống nhai')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Máng Fluor không thuốc', N'Máng', 100000, N'2 hàm', N'Nha công cộng')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Mão kim loại làm sẵn', N'Răng', 250000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Mão nhựa răng cửa(Strip crown)', N'Răng', 200000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Mão tạm', N'Răng', 15000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Mão, cầu răng kim loại - sứ', N'Răng', 500000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Mão, cầu răng kim loại toàn diện', N'Răng', 350000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Mặt phẳng nghiêng', N'Cái', 500000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Móc dẻo', N'Cái', 200000, NULL, N'Sửa chữa hàm')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Nhổ chân răng vĩnh viễn', N'Cái', 60000, NULL, N'Nhổ răng')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Nhổ răng lung lay', N'Cái', 50000, NULL, N'Nhổ răng')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Nhổ răng sữa(tê bôi)', N'Răng', 20000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Nhổ răng sữa(tê chích)', N'Răng', 50000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Phẫu thuật cắt chóp', N'Cái', 300000, NULL, N'Tiểu phẫu thuật')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Phẫu thuật điều chỉnh xương ổ răng', N'Cái', 200000, NULL, N'Tiểu phẫu thuật')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Phẫu thuật lật vạt làm sạch', N'Lần', 100000, NULL, N'Nha chu')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Phẫu thuật nướu', N'Răng', 500000, NULL, N'Nha chu')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Phim quanh chóp', N'Phim', 30000, NULL, N'X-quang răng')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Phim toàn cảnh', N'Phim', 100000, NULL, N'X-quang răng')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Răng cối lớn', N'Cái', 400000, N'5 phim', N'Chữa tủy')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Răng cối lớn dưới', N'Cái', 90000, NULL, N'Nhổ răng')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Răng cối lớn trên', N'Cái', 70000, NULL, N'Nhổ răng')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Răng cối nhỏ', N'Cái', 60000, NULL, N'Nhổ răng')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Răng cối nhỏ (Chữa tủy)', N'Cái', 300000, N'4 phim', N'Chữa tủy')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Răng cửa, răng nanh', N'Cái', 50000, NULL, N'Nhổ răng')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Răng cửa, răng nanh (Chữa tủy)', N'Cái', 250000, N'4 phim', N'Chữa tủy')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Răng khôn mọc lệch nhổ tiểu phẫu', N'Cái', 300000, NULL, N'Tiểu phẫu thuật')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Sứ cercon', NULL, 3500000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Sứ titan', NULL, 700000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Sứ zirconia', NULL, 2500000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Tái tạo cùi răng(có chốt)', N'Răng', 150000, NULL, N'Phục hình cố định')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Tái tạo thân răng', N'Răng', 150000, NULL, N'Chữa răng - Nội nha')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Tấm chặn môi', N'Cái', 500000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Thay nền', N'Hàm', 300000, NULL, N'Sửa chữa hàm')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Thêm, thay móc', N'Cái', 50000, NULL, N'Sửa chữa hàm')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Thêm, thay răng', N'Cái', 50000, NULL, N'Sửa chữa hàm')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Tiểu phẫu', N'Lần', 250000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Trám composite xoang I, III', N'Xoang', 100000, NULL, N'Chữa răng - Nội nha')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Trám composite xoang II, IV, V', N'Xoang', 120000, NULL, N'Chữa răng - Nội nha')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Trám đắp mặt, hở kẽ', N'Cái', 200000, NULL, N'Chữa răng - Nội nha')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Trám dự phòng hố rãnh mặt nhai', N'Răng', 80000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Trám GIC', N'Xoang', 100000, NULL, N'Chữa răng - Nội nha')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Trám phòng ngừa', N'Cái', 80000, NULL, N'Chữa răng - Nội nha')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Trám răng sữa bằng composite', N'Răng', 80000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Trám răng sữa bằng GIC', N'Răng', 50000, NULL, N'Điều trị răng sữa')
+INSERT [dbo].[Dich_vu] ([Ten_dich_vu], [Don_vi_tinh], [Don_gia], [Ghi_chu], [Ten_danh_muc]) VALUES (N'Vá hàm', N'Hàm', 100000, NULL, N'Sửa chữa hàm')
+GO
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Bay trám', N'Trắng', NULL, N'Cái', 500000, 10, NULL, N'Vật liệu cố định')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Bộ dụng cụ khám răng cơ bản', N'Trắng', NULL, N'Bộ', 700000, 10, NULL, N'Vật liệu cố định')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Cây đo túi nướu', N'Trắng', NULL, N'Cái', 40000, 10, NULL, N'Vật liệu cố định')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Chỉ khâu', N'Trắng', NULL, N'Hộp', 40000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Chổi đánh bóng', N'Trắng', NULL, N'Hộp', 200000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Cọ bond', N'Vàng', NULL, N'Cái', 120000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Composite đặc', N'Đen', NULL, N'Ống', 170000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Composite lỏng', N'Đen', NULL, N'Ống', 100000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Cone chính', N'Trắng', NULL, N'Hộp', 500000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Cone giấy', N'Trắng', NULL, N'Hộp', 50000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Đèn quang trùng hợp', N'Xanh dương', NULL, N'Cái', 20000000, 10, NULL, N'Vật liệu cố định')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'EDTA', N'Trắng', NULL, N'Ống', 150000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Formolcoresol', N'Đỏ', NULL, N'Chai', 200000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'GIC', N'Trắng', NULL, N'Chai', 1000000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Gòn', N'Trắng', NULL, N'Cái', 5000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Kèm', N'Trắng', NULL, N'Cái', 300000, 10, NULL, N'Vật liệu cố định')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'MTA', N'Trắng', NULL, N'Cái', 2500000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Mũi cạo vôi', N'Trắng', NULL, N'Cái', 400000, 10, NULL, N'Vật liệu cố định')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Mũi đánh bóng', N'Trắng', NULL, N'Cái', 100000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Mũi khoan kim cương', N'Đen', NULL, N'Cái', 1000000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'NaCL', N'Trắng', NULL, N'Chai', 12000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Nạo ngà', N'Trắng', NULL, N'Cái', 300000, 10, NULL, N'Vật liệu cố định')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'NaOCl', N'Trắng', NULL, N'Chai', 450000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Nạy', N'Đen', NULL, N'Cái', 100000, 10, NULL, N'Vật liệu cố định')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Ống chích sắt', N'Trắng', NULL, N'Cái', 200000, 10, NULL, N'Vật liệu cố định')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Sealer trám bít', N'Trắng', NULL, N'Ống', 500000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Sò đánh bóng', N'Nâu', NULL, N'Hộp', 200000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Spongel', N'Trắng', NULL, N'Hộp', 12000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Thuốc tê', N'Trắng', NULL, N'Hộp', 900000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Trâm máy', N'Vàng', NULL, N'Cái', 200000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Trám tạm', N'Trắng', NULL, N'Hộp', 100000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'Trâm tay', N'Đen', NULL, N'Bộ', 300000, 10, NULL, N'Vật liệu tiêu hao')
+INSERT [dbo].[Dung_cu] ([Ten_dung_cu], [Mau_sac], [Kich_co], [DVT], [Tri_gia], [So_luong], [Ghi_chu], [Loai]) VALUES (N'ZnO', N'Trắng', NULL, N'Chai', 70000, 10, NULL, N'Vật liệu tiêu hao')
+GO
+INSERT [dbo].[Lam_viec] ([Ngay], [Ca], [Ma_bac_si], [Cham_cong]) VALUES (CAST(N'2024-11-21' AS Date), 1, N'BSRTE01', N'Chưa điểm danh')
+GO
+INSERT [dbo].[Le_tan] ([Ma_le_tan]) VALUES (N'LT01')
+GO
+INSERT [dbo].[Loai_dung_cu] ([Ten_loai]) VALUES (N'Vật liệu cố định')
+INSERT [dbo].[Loai_dung_cu] ([Ten_loai]) VALUES (N'Vật liệu tiêu hao')
+GO
+INSERT [dbo].[Loai_thuoc] ([Ten_loai]) VALUES (N'Giảm đau')
+INSERT [dbo].[Loai_thuoc] ([Ten_loai]) VALUES (N'Kháng sinh')
+INSERT [dbo].[Loai_thuoc] ([Ten_loai]) VALUES (N'Kháng viêm')
+GO
+INSERT [dbo].[Luong_co_dinh] ([Ma], [So_tien]) VALUES (N'BSCRVNN', 9200000)
+INSERT [dbo].[Luong_co_dinh] ([Ma], [So_tien]) VALUES (N'BSNC', 9000000)
+INSERT [dbo].[Luong_co_dinh] ([Ma], [So_tien]) VALUES (N'BSNRVTP', 7500000)
+INSERT [dbo].[Luong_co_dinh] ([Ma], [So_tien]) VALUES (N'BSPH', 8500000)
+INSERT [dbo].[Luong_co_dinh] ([Ma], [So_tien]) VALUES (N'BSRTE', 7000000)
+INSERT [dbo].[Luong_co_dinh] ([Ma], [So_tien]) VALUES (N'BSTQ', 8000000)
+INSERT [dbo].[Luong_co_dinh] ([Ma], [So_tien]) VALUES (N'CPK', 50000000)
+INSERT [dbo].[Luong_co_dinh] ([Ma], [So_tien]) VALUES (N'LT', 5000000)
+GO
+INSERT [dbo].[Nguoi_dung] ([Ma_nhan_vien], [Ho], [Ten], [Gioi_tinh], [Ngay_sinh], [Email], [Que_quan], [CCCD], [Maluong], [Hoatdong]) VALUES (N'BSRTE01', N'Trần', N'A', N'Nữ', CAST(N'1988-04-12' AS Date), N'456@gmail.com', N'Đồng Tháp', N'123456789016', N'BSRTE', 1)
+INSERT [dbo].[Nguoi_dung] ([Ma_nhan_vien], [Ho], [Ten], [Gioi_tinh], [Ngay_sinh], [Email], [Que_quan], [CCCD], [Maluong], [Hoatdong]) VALUES (N'BSTQ01', N'Nguyễn', N'B', N'Nam', CAST(N'1985-11-11' AS Date), N'uchihi3169@gmail.com', N'Hải Phòng', N'11111111', N'BSTQ', 1)
+INSERT [dbo].[Nguoi_dung] ([Ma_nhan_vien], [Ho], [Ten], [Gioi_tinh], [Ngay_sinh], [Email], [Que_quan], [CCCD], [Maluong], [Hoatdong]) VALUES (N'BSTQ02', N'Trần', N'C', N'Nam', CAST(N'1990-07-15' AS Date), N'456@gmail.com', N'Đà Nẵng', N'123456789015', N'BSTQ', 1)
+INSERT [dbo].[Nguoi_dung] ([Ma_nhan_vien], [Ho], [Ten], [Gioi_tinh], [Ngay_sinh], [Email], [Que_quan], [CCCD], [Maluong], [Hoatdong]) VALUES (N'CPK01', N'Nguyễn', N'D', N'Nam', CAST(N'1978-03-09' AS Date), N'nguyenvanhungdm6@gmail.com', N'Quảng Ngãi', N'00000000', N'CPK', 1)
+INSERT [dbo].[Nguoi_dung] ([Ma_nhan_vien], [Ho], [Ten], [Gioi_tinh], [Ngay_sinh], [Email], [Que_quan], [CCCD], [Maluong], [Hoatdong]) VALUES (N'LT01', N'Nguyễn', N'E', N'Nữ', CAST(N'2000-02-01' AS Date), N'123@gmail.com', N'Hà Nội', N'22222222', N'LT', 1)
+INSERT [dbo].[Nguoi_dung] ([Ma_nhan_vien], [Ho], [Ten], [Gioi_tinh], [Ngay_sinh], [Email], [Que_quan], [CCCD], [Maluong], [Hoatdong]) VALUES (N'LT02', N'Lê', N'F', N'Nữ', CAST(N'1992-07-23' AS Date), N'uchihaha3169@gmail.com', N'Đà Nẵng', N'123456789013', N'LT', 1)
+GO
+INSERT [dbo].[Nguoi_kham] ([STT], [Ngay], [Ca], [Ma_benh_nhan], [Ma_le_tan], [Ma_bac_si], [Trang_thai], [Ghi_chu]) VALUES (N'NK001', CAST(N'2024-11-21' AS Date), 1, N'987654321001', N'LT01', N'BSRTE01', N'Chưa tiếp nhận', N'Tái khám')
+GO
+INSERT [dbo].[Phuong_thuc_thanh_toan] ([Ten]) VALUES (N'Chuyển khoản')
+INSERT [dbo].[Phuong_thuc_thanh_toan] ([Ten]) VALUES (N'Tiền mặt')
+GO
+INSERT [dbo].[Tai_khoan] ([Taikhoan], [Matkhau], [MaNV], [role]) VALUES (N'LT01', N'22222222', N'LT01', N'lễ tân')
+INSERT [dbo].[Tai_khoan] ([Taikhoan], [Matkhau], [MaNV], [role]) VALUES (N'CPK01', N'00000000', N'CPK01', N'quản lý')
+INSERT [dbo].[Tai_khoan] ([Taikhoan], [Matkhau], [MaNV], [role]) VALUES (N'BSTQ01', N'11111111', N'BSTQ01', N'bác sĩ')
+GO
+INSERT [dbo].[Thanh_toan] ([ID], [STT], [Gio], [Tongtien], [Hinhthuc], [Tinhtrang]) VALUES (N'TK01', N'NK001', CAST(N'2024-11-28T21:30:51.000' AS DateTime), 12000000, N'Chuyển khoản', N'Đã thanh toán')
+GO
+INSERT INTO [dbo].[Hoa_don_Thuoc] ([ID], [STT], [Ten_thuoc], [So_luong], [Thanh_tien], [Ghi_chu]) 
+VALUES
+    (N'HDTH01', N'NK001', N'Amoxicillin 500', 2, 240000, N'Successful treatment'),
+    (N'HDTH02', N'NK001', N'Paracetamol 500', 1, 33000, N'Pain relief');
+INSERT INTO [dbo].[Hoa_don_Dich_vu] ([ID], [STT], [Ten_dich_vu], [So_luong], [Thanh_tien], [Ghi_chu]) 
+VALUES
+    (N'HDDV01', N'NK001', N'Cạo vôi răng', 1, 50000, N'Teeth cleaning'),
+    (N'HDDV02', N'NK001', N'Nhổ răng lung lay', 1, 50000, N'Tooth extraction');
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Amoxicillin 1000', N'Hộp', 10, 275000, N'1000mg', NULL, N'Kháng sinh')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Amoxicillin 500', N'Hộp', 10, 120000, N'500mg', NULL, N'Kháng sinh')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Amoxicillin 625', N'Hộp', 10, 182000, N'625mg', NULL, N'Kháng sinh')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Amoxicillin 875', N'Hộp', 10, 126000, N'875mg', NULL, N'Kháng sinh')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Cephalexin', N'Hộp', 10, 127000, N'500mg', NULL, N'Kháng sinh')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Dexamethasone', N'Hộp', 10, 150000, N'4mg', NULL, N'Giảm đau')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Diclofenac 50', N'Hộp', 10, 32000, N'50mg', NULL, N'Kháng viêm')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Diclofenac 75', N'Hộp', 10, 55000, N'75mg', NULL, N'Kháng viêm')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Ibuprofen 200', N'Hộp', 10, 43000, N'200mg', NULL, N'Kháng viêm')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Ibuprofen 400', N'Hộp', 10, 88000, N'400mg', NULL, N'Kháng viêm')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Medrol 16', N'Hộp', 10, 120000, N'16mg', NULL, N'Kháng viêm')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Medrol 4', N'Hộp', 10, 40000, N'4mg', NULL, N'Kháng viêm')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Metronidazol 250', N'Hộp', 10, 30000, N'250mg', NULL, N'Kháng sinh')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Metronidazol 500', N'Hộp', 10, 100000, N'500mg', NULL, N'Kháng sinh')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Paracetamol 500', N'Hộp', 10, 33000, N'500mg', NULL, N'Giảm đau')
+INSERT [dbo].[Thuoc] ([Ten_thuoc], [DVT], [So_luong], [Gia_ban], [Ham_luong], [Ghi_chu], [Ten_loai]) VALUES (N'Paracetamol 650', N'Hộp', 10, 56000, N'650mg', NULL, N'Giảm đau')
+GO
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UQ__Nguoi_du__A955A0AA9A3D8516]    Script Date: 11/23/2024 10:27:15 PM ******/
+ALTER TABLE [dbo].[Nguoi_dung] ADD UNIQUE NONCLUSTERED 
+(
+	[CCCD] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Tai_khoan] ADD  DEFAULT (N'lễ tân') FOR [role]
+GO
+ALTER TABLE [dbo].[Bac_si]  WITH CHECK ADD FOREIGN KEY([Chuyen_khoa])
+REFERENCES [dbo].[Chuyen_khoa] ([Ten])
+GO
+ALTER TABLE [dbo].[Bac_si]  WITH CHECK ADD FOREIGN KEY([Ma_bac_si])
+REFERENCES [dbo].[Nguoi_dung] ([Ma_nhan_vien])
+GO
+ALTER TABLE [dbo].[Chi_tieu_dung_cu]  WITH CHECK ADD FOREIGN KEY([Ten_dung_cu])
+REFERENCES [dbo].[Dung_cu] ([Ten_dung_cu])
+GO
+ALTER TABLE [dbo].[Chi_tieu_dung_cu]  WITH CHECK ADD FOREIGN KEY([STT])
+REFERENCES [dbo].[Nguoi_kham] ([STT])
+GO
+ALTER TABLE [dbo].[Chu]  WITH CHECK ADD FOREIGN KEY([Ma_chu])
+REFERENCES [dbo].[Nguoi_dung] ([Ma_nhan_vien])
+GO
+ALTER TABLE [dbo].[Dich_vu]  WITH CHECK ADD FOREIGN KEY([Ten_danh_muc])
+REFERENCES [dbo].[Danh_muc_ki_thuat] ([Ten_danh_muc])
+GO
+ALTER TABLE [dbo].[Dung_cu]  WITH CHECK ADD FOREIGN KEY([Loai])
+REFERENCES [dbo].[Loai_dung_cu] ([Ten_loai])
+GO
+ALTER TABLE [dbo].[Hoa_don_Dich_vu]  WITH CHECK ADD FOREIGN KEY([Ten_dich_vu])
+REFERENCES [dbo].[Dich_vu] ([Ten_dich_vu])
+GO
+ALTER TABLE [dbo].[Hoa_don_Dich_vu]  WITH CHECK ADD FOREIGN KEY([STT])
+REFERENCES [dbo].[Nguoi_kham] ([STT])
+GO
+ALTER TABLE [dbo].[Hoa_don_Thuoc]  WITH CHECK ADD FOREIGN KEY([Ten_thuoc])
+REFERENCES [dbo].[Thuoc] ([Ten_thuoc])
+GO
+ALTER TABLE [dbo].[Hoa_don_Thuoc]  WITH CHECK ADD FOREIGN KEY([STT])
+REFERENCES [dbo].[Nguoi_kham] ([STT])
+GO
+ALTER TABLE [dbo].[Lam_viec]  WITH CHECK ADD FOREIGN KEY([Ca])
+REFERENCES [dbo].[Ca_lam] ([Ca])
+GO
+ALTER TABLE [dbo].[Lam_viec]  WITH CHECK ADD FOREIGN KEY([Ma_bac_si])
+REFERENCES [dbo].[Bac_si] ([Ma_bac_si])
+GO
+ALTER TABLE [dbo].[Le_tan]  WITH CHECK ADD FOREIGN KEY([Ma_le_tan])
+REFERENCES [dbo].[Nguoi_dung] ([Ma_nhan_vien])
+GO
+ALTER TABLE [dbo].[Luong_them]  WITH CHECK ADD FOREIGN KEY([IDHD])
+REFERENCES [dbo].[Thanh_toan] ([ID])
+GO
+ALTER TABLE [dbo].[Nguoi_dung]  WITH CHECK ADD FOREIGN KEY([Maluong])
+REFERENCES [dbo].[Luong_co_dinh] ([Ma])
+GO
+ALTER TABLE [dbo].[Nguoi_kham]  WITH CHECK ADD FOREIGN KEY([Ma_bac_si])
+REFERENCES [dbo].[Bac_si] ([Ma_bac_si])
+GO
+ALTER TABLE [dbo].[Nguoi_kham]  WITH CHECK ADD FOREIGN KEY([Ma_benh_nhan])
+REFERENCES [dbo].[Benh_nhan] ([CCCD])
+GO
+ALTER TABLE [dbo].[Nguoi_kham]  WITH CHECK ADD FOREIGN KEY([Ma_le_tan])
+REFERENCES [dbo].[Le_tan] ([Ma_le_tan])
+GO
+ALTER TABLE [dbo].[Tai_khoan]  WITH CHECK ADD FOREIGN KEY([MaNV])
+REFERENCES [dbo].[Nguoi_dung] ([Ma_nhan_vien])
+GO
+ALTER TABLE [dbo].[Thanh_toan]  WITH CHECK ADD FOREIGN KEY([Hinhthuc])
+REFERENCES [dbo].[Phuong_thuc_thanh_toan] ([Ten])
+GO
+ALTER TABLE [dbo].[Thanh_toan]  WITH CHECK ADD FOREIGN KEY([STT])
+REFERENCES [dbo].[Nguoi_kham] ([STT])
+GO
+ALTER TABLE [dbo].[Thuoc]  WITH CHECK ADD FOREIGN KEY([Ten_loai])
+REFERENCES [dbo].[Loai_thuoc] ([Ten_loai])
+GO
+ALTER TABLE [dbo].[Benh_nhan]  WITH CHECK ADD CHECK  (([Gioi_tinh]=N'Nữ' OR [Gioi_tinh]=N'Nam'))
+GO
+ALTER TABLE [dbo].[Benh_nhan]  WITH CHECK ADD CHECK  (([Tuoi]>(0)))
+GO
+ALTER TABLE [dbo].[Ca_lam]  WITH CHECK ADD CHECK  (([Ca]>=(1) AND [Ca]<=(3)))
+GO
+ALTER TABLE [dbo].[Dich_vu]  WITH CHECK ADD CHECK  (([Don_gia]>(0)))
+GO
+ALTER TABLE [dbo].[Dich_vu]  WITH CHECK ADD CHECK  (([Don_vi_tinh]=N'Đơn vị' OR [Don_vi_tinh]=N'Phim' OR [Don_vi_tinh]=N'Máng' OR [Don_vi_tinh]=N'Bộ' OR [Don_vi_tinh]=N'Hàm' OR [Don_vi_tinh]=N'Ống tủy' OR [Don_vi_tinh]=N'Xoang' OR [Don_vi_tinh]=N'Răng' OR [Don_vi_tinh]=N'Lần' OR [Don_vi_tinh]=N'Vùng hàm' OR [Don_vi_tinh]=N'2 hàm' OR [Don_vi_tinh]=N'Lượt' OR [Don_vi_tinh]=N'Cái'))
+GO
+ALTER TABLE [dbo].[Dung_cu]  WITH CHECK ADD CHECK  (([So_luong]>=(0)))
+GO
+ALTER TABLE [dbo].[Dung_cu]  WITH CHECK ADD CHECK  (([Tri_gia]>(0)))
+GO
+ALTER TABLE [dbo].[Lam_viec]  WITH CHECK ADD CHECK  (([Cham_cong]=N'Chưa điểm danh' OR [Cham_cong]=N'Vắng' OR [Cham_cong]=N'Có mặt'))
+GO
+ALTER TABLE [dbo].[Nguoi_dung]  WITH CHECK ADD CHECK  (([Gioi_tinh]=N'Nữ' OR [Gioi_tinh]=N'Nam'))
+GO
+ALTER TABLE [dbo].[Nguoi_kham]  WITH CHECK ADD CHECK  (([Ghi_chu]=N'Xong' OR [Ghi_chu]=N'Tái khám'))
+GO
+ALTER TABLE [dbo].[Nguoi_kham]  WITH CHECK ADD CHECK  (([Trang_thai]=N'Đã điều trị' OR [Trang_thai]=N'Đang điều trị' OR [Trang_thai]=N'Đã tiếp nhận' OR [Trang_thai]=N'Chưa tiếp nhận'))
+GO
+ALTER TABLE [dbo].[Nguoi_kham]  WITH CHECK ADD CHECK  (([Ca]>=(1) AND [Ca]<=(3)))
+GO
+ALTER TABLE [dbo].[Phuong_thuc_thanh_toan]  WITH CHECK ADD CHECK  (([Ten]=N'Chuyển khoản' OR [Ten]=N'Tiền mặt'))
+GO
+ALTER TABLE [dbo].[Tai_khoan]  WITH CHECK ADD  CONSTRAINT [CHK_Role] CHECK  (([role]=N'bác sĩ' OR [role]=N'lễ tân' OR [role]=N'quản lý'))
+GO
+ALTER TABLE [dbo].[Tai_khoan] CHECK CONSTRAINT [CHK_Role]
+GO
+ALTER TABLE [dbo].[Thanh_toan]  WITH CHECK ADD CHECK  (([Tinhtrang]=N'Hủy thanh toán' OR [Tinhtrang]=N'Đã thanh toán' OR [Tinhtrang]=N'Chưa thanh toán'))
+GO
+ALTER TABLE [dbo].[Thuoc]  WITH CHECK ADD CHECK  (([Gia_ban]>(0)))
+GO
+ALTER TABLE [dbo].[Thuoc]  WITH CHECK ADD CHECK  (([So_luong]>=(0)))
+GO
+USE [SmartClinicSystem]
+GO
+ALTER DATABASE [SmartClinicSystem] SET  READ_WRITE 
+GO
+CREATE PROC [dbo].[proc_kiemtraemail] 
+    @taikhoan VARCHAR(30),
+    @email VARCHAR(50),
+    @message NVARCHAR(1000) OUTPUT
+AS
+BEGIN
+    DECLARE @Hoatdong INT;
+
+    -- Check if the account exists
+    IF NOT EXISTS (SELECT 1 FROM Tai_khoan WHERE Taikhoan = @taikhoan)
+    BEGIN
+        SET @message = N'Không tìm thấy tài khoản';
+        RETURN;
+    END
+
+    -- Check if the account is active
+    SELECT @Hoatdong = Hoatdong
+    FROM Nguoi_dung nd
+    INNER JOIN Tai_khoan tk ON nd.Ma_nhan_vien = tk.MaNV
+    WHERE tk.Taikhoan = @taikhoan;
+
+    IF @Hoatdong = 0
+    BEGIN
+        SET @message = N'Tài khoản không còn hoạt động';
+        RETURN;
+    END
+
+    -- Check if the email matches
+    IF NOT EXISTS (
+        SELECT 1 
+        FROM Nguoi_dung nd
+        INNER JOIN Tai_khoan tk ON nd.Ma_nhan_vien = tk.MaNV
+        WHERE tk.Taikhoan = @taikhoan AND nd.email = @email
+    )
+    BEGIN
+        SET @message = N'Email không khớp với tài khoản';
+        RETURN;
+    END
+
+    -- If everything is correct, return success
+    SET @message = N'Thành công';
+END
+GO
+create proc [dbo].[proc_khoiphucmatkhau] @taikhoan VARCHAR(30)
+as
+	begin
+		declare @cccd NVARCHAR(12)
+		select @cccd = cccd from  Tai_khoan t inner join Nguoi_dung n on t.MaNV = n.Ma_nhan_vien where Taikhoan = @taikhoan
+		update Tai_khoan
+		set Matkhau = @cccd
+		where Taikhoan = @taikhoan
+	end
+GO
+CREATE PROCEDURE [dbo].[proc_check]
+    @manhanvien VARCHAR(10),
+	@matkhau VARCHAR(30)
+AS
+BEGIN
+    select * from Nguoi_dung inner join Tai_khoan on Nguoi_dung.Ma_nhan_vien = Tai_khoan.MaNV
+	where MaNV = @manhanvien
+END;
+GO
+CREATE PROCEDURE [dbo].[proc_thaydoimatkhau]
+    @manhanvien VARCHAR(10),
+	@matkhaumoi NVARCHAR(4000)
+AS
+BEGIN
+    update Tai_khoan set Matkhau = @matkhaumoi
+	where MaNV = @manhanvien
+END;
+GO
